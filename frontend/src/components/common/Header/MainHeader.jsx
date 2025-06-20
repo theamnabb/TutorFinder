@@ -35,7 +35,7 @@ const MainHeader = () => {
           </div>
 
           {/* Login Button */}
-          <button className="flex items-center gap-x-2 text-[18px] font-normal bg-white text-tertiary px-5 py-3 rounded-full">
+          <button className=" cursor-pointer flex items-center gap-x-2 text-[18px] font-normal bg-white text-tertiary px-5 py-3 rounded-full">
             Login <UserIcon />
           </button>
         </div>
