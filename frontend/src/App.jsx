@@ -1,3 +1,5 @@
+import { Routes, Route } from "react-router-dom";
+import Verify from "./pages/Verify";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
@@ -13,6 +15,7 @@ function App() {
     <>
       <h1 className="font-bold text-3xl text-center text-yellow-500">Helo</h1>
       <Header />
+      {/* All Routes Here */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/tutors" element={<Tutors />} />
