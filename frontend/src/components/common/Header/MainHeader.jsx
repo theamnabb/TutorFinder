@@ -7,8 +7,8 @@ const MainHeader = () => {
       <div>
         {/* Logos */}
         <Link>
-          <span>
-            <span>T</span>
+          <span className="text-tertiary">
+            <span >T</span>
             utorFinder
           </span>
         </Link>

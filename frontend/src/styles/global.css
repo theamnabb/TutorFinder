@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@import "tailwindcss";
+
+
+/* Theme */
+@theme {
+  --color-primary: #f9f9f9;
+  --color-secondary: #e2f047;
+  --color-tertiary: #404040;
+  --color-light: #f9fbfc;
+  --color-gray-10: #eeeeee; 
+  --color-gray-20: #a2a2a2;
+  --color-gray-30: #7b7b7b;
+  --color-gray-50: #585858;
+  --color-gray-90: #141414;
+
+  --breakpoint-xs: 400px;
+  --bg-hero: "url('/src/assest/react.svg')";
+}
