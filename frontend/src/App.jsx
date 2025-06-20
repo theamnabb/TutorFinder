@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Verify from "./pages/Verify";
-import Header from "./components/Header";
+import Header from "./components/common/Header/MainHeader";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
@@ -13,7 +13,6 @@ import Login from "./auth/Login";
 function App() {
   return (
     <>
-      <h1 className="font-bold text-3xl text-center text-yellow-500">Helo</h1>
       <Header />
       {/* All Routes Here */}
       <Routes>
