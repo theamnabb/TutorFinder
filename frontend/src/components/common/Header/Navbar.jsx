@@ -1,8 +1,10 @@
 import React from 'react'
-
+import{FaRightWindowClose} from "react-icons/fa"
 const Navbar = () => {
   return (
-    <div>Navbar</div>
+    <nav>
+      {/* Close Button */}
+    </nav>
   )
 }
 
