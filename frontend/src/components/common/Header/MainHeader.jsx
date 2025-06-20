@@ -26,7 +26,7 @@ const MainHeader = () => {
 
         {/* NavBar */}
         <div className="flex-1 ">
-          <Navbar />
+          <Navbar menuOpened= {menuOpened} toggleMenu = {toggleMenu} />
         </div>
 
         
