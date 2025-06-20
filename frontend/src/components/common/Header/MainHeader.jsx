@@ -1,14 +1,28 @@
-import React from 'react'
-
-const MainHeader= () => {
+import React from "react";
+import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
+const MainHeader = () => {
   return (
     <header>
       <div>
         {/* Logos */}
-        <h1>Helo logo</h1>
+        <Link>
+          <span>
+            <span>T</span>
+            utorFinder
+          </span>
+        </Link>
+
+        {/* NavBar */}
+        <div>
+          <Navbar />
+        </div>
+
+        
+        {/* Right Side */}
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default MainHeader
+export default MainHeader;
