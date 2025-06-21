@@ -15,8 +15,8 @@ export function Stats() {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="transform transition duration-300 hover:scale-105 hover:bg-secondary rounded-md p-4 shadow-sm"
-              style={{ transitionDelay: `${index * 100}ms` }}
+              className="transform transition duration-400 hover:scale-105 hover:bg-secondary rounded-md p-4 shadow-sm"
+              style={{ transitionDelay: `${index * 10}ms` }}
             >
               <h3 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
                 {stat.number}

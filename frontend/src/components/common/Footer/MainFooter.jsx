@@ -118,7 +118,7 @@ const MainFooter = () => {
         </div>
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-400">
-            © {new Date().getFullYear()} TutorFinder. All rights reserved.
+            © {new Date().getFullYear()} <span className="text-secondary">TutorFinder </span> All rights reserved.
           </p>
         </div>
       </div>
