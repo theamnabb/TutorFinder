@@ -7,7 +7,7 @@ const FeatureCard = ({ title, icon: Icon, className = "" }) => {
     <div className={`flex flex-col gap-y-2 p-4 rounded-xl max-w-[233px] ${className}`}>
       <Icon className="w-7 h-17" />
       <h5 className="text-sm md:text-lg mb-2 font-bold">{title}</h5>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+      <p className="text-tertiary">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
     </div>
   );
 };
