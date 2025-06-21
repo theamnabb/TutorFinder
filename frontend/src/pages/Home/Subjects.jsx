@@ -7,8 +7,8 @@ const Subjects = () => {
     <section className='mx-auto max-w-[1440px] px-6 lg:px-12 py-14 xl:py-16'>
       {/* Title  */}
       <div className='max-w-lg mx-auto text-center pb-14'>
-        <h3 className='text-xl leading-tight md:text-3xl md:leading-[1.3] mb-4 font-bold'>Explore By Subjects</h3>
-        <p className='text-tertiary'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa atque, deleniti officiis ratione inventore, et perferendis eum error dicta </p>
+        <h3 className='text-4xl md:text-5xl font-bold text-gray-900 mb-6'>Explore By Subjects</h3>
+        <p className='text-md md:text-xl text-gray-600'>Lorem ipsum dolor sit amet  deleniti officiis ratione inventore, et perferendis eum error dicta </p>
       </div>
 
       {/* Container for subject data  */}
