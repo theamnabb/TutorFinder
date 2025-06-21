@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
   return (
-    <section>
+    <section className="mx-auto max-w-[1440px] px-6 lg:px-12 bg-hero">
       <div>
         <span>
           <span>#1</span>Trusted Online Tutoring Platform
@@ -19,7 +19,6 @@ const HeroSection = () => {
           <Button asChild>
             <Link to="/login">Register Now</Link>
           </Button>
-          {/* <Link to="/login">Register Now</Link> */}
         </div>
       </div>
     </section>
