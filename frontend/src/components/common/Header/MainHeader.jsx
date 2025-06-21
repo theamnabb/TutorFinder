@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import { UserIcon, AlignLeft } from "lucide-react";
+import { Button} from "@/components/ui/button";
 
 const MainHeader = () => {
   const [menuOpened, setMenuOpened] = React.useState(false);
@@ -35,9 +36,9 @@ const MainHeader = () => {
           </div>
 
           {/* Login Button */}
-          <button className=" cursor-pointer flex items-center gap-x-2 text-[18px] font-normal bg-white text-tertiary px-5 py-3 rounded-full">
+          <Button variant="custom" >
             Login <UserIcon />
-          </button>
+          </Button>
         </div>
       </div>
 
