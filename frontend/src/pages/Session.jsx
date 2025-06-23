@@ -17,6 +17,32 @@ const Session = () => {
 
   if (!tutorInfo) return <div>Loading...</div>;
 
+  useEffect(() => {
+    if (!tutorInfo) return;
+
+    const generateSlots = () => {
+      const today = new Date();
+      const slotsPerDay = [];
+
+      for (let i = 0; i < 7; i++) {
+        const date = new Date(today);
+        date.ssetDate(today.getDate() + 1);
+
+        const daySlots = [];
+        const startTime = new Date(date);
+        const endTime = new Date(date);
+
+        if (i == 0) {
+          startTime.setHours(Math.max(date.getHours() + 1, 10));
+          startTime.setMinutes(date.getMinutes() > 30 ? 30 : 0);
+        } else {
+          startTime.setHours(10, 0, 0, 0);
+        }
+        endTime.setHours(21, 0, 0, 0);
+      }
+    };
+  });
+
   return (
     <div className="mx-auto max-w-[1440px] px-6 lg:px-12 py-12">
       <div
@@ -123,6 +149,8 @@ const Session = () => {
             <h4 className="text-xl font-bold mb-2">About Me</h4>
             <p className="text-gray-700 leading-relaxed">{tutorInfo.about}</p>
           </div>
+
+          {/* Booking Session */}
         </div>
       </div>
     </div>
