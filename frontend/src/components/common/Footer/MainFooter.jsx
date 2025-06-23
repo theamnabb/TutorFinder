@@ -23,7 +23,7 @@ const MainFooter = () => {
             </p>
             <div className="flex space-x-4">
               <a
-               href="tel:+923487612304"
+               href="tel:+923134041048"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -96,10 +96,10 @@ const MainFooter = () => {
               <li className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-gray-400" />
                 <a
-                  href="tel:+923487612304"
+                  href="tel:+923134041048"
                   className="text-gray-300 hover:underline"
                 >
-                  +92 348 7613204
+                  +92 313 4041048
                 </a>
               </li>
               <li className="flex items-center space-x-2">
