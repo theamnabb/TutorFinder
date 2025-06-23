@@ -89,7 +89,7 @@ const FeaturedTutors = () => {
           <Button
             size="lg"
             variant="secondary"
-            onClick={() => navigate(`/sessions/${tutor._id}`)}
+            onClick={() => navigate(`/session/${tutor._id}`)}
             className="w-40 cursor-pointer"
           >
             View Profile
