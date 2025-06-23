@@ -7,12 +7,11 @@ export default function Tutors() {
   const { tutors, navigate, subjectData } = useContext(AppContext);
   const { subject: subjectParam } = useParams(); // for capturing subject from URL
   const [showFilters, setShowFilters] = useState(false);
-  
-  const handleSubjectClick = (subjectName)=>{
+
+  const handleSubjectClick = (subjectName) => {
     navigate(`/tutors/${subjectName}`);
     setShowFilters(false); // Hide filters after selection
-  }
-
+  };
 
   return (
     <div className="py-28 mx-auto max-w-[1440px] px-6 lg:px-12">
@@ -65,7 +64,9 @@ export default function Tutors() {
                   style={{
                     top: `calc(50% + ${y}px)`,
                     left: `calc(50% + ${x}px)`,
-                    transform: `translate(-50%, -50%) rotate(-${(360 / 7) * i}deg)`,
+                    transform: `translate(-50%, -50%) rotate(-${
+                      (360 / 7) * i
+                    }deg)`,
                   }}
                 />
               );
@@ -90,13 +91,14 @@ export default function Tutors() {
       <div
         className={`${
           showFilters ? "flex" : "hidden sm:flex"
-        } flex-wrap justify-center gap-4 mt-6`}
+        } flex-col sm:flex-row flex-wrap justify-center gap-4 mt-6`}
       >
         {subjectData.map((subject, i) => (
-          <Button onClick={() => handleSubjectClick(subject.name)}
+          <Button
+            onClick={() => handleSubjectClick(subject.name)}
             key={i}
             variant="secondary"
-            className={`px-8 cursor-pointer transition-all duration-300 ${
+            className={`w-full sm:w-auto px-8 cursor-pointer transition-all duration-300 ${
               subject.name === subjectParam
                 ? "bg-deep text-white hover:bg-deep/80"
                 : ""
