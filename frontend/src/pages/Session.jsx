@@ -2,6 +2,10 @@ import { AppContext } from "@/context/AppContext";
 import React, { useState, useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { MapPin } from "lucide-react";
+import { Button } from "@/components/ui/button";
+// Day of week
+
+const dayOfWeek = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
 const Session = () => {
   const { tutId } = useParams();
@@ -98,7 +102,9 @@ const Session = () => {
           {/* Name, Qualification, Availability */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between max-w-full">
             <div>
-              <h3 className="text-3xl font-bold text-black">{tutorInfo.name}</h3>
+              <h3 className="text-3xl font-bold text-black">
+                {tutorInfo.name}
+              </h3>
               <h5 className="font-semibold text-gray-600 mt-1">
                 {tutorInfo.qualification}
               </h5>
@@ -138,7 +144,7 @@ const Session = () => {
           </div>
 
           {/* Location */}
-          <div className="max-w-sm flex items-center gap-3 text-gray-700 mt-6">
+          <div className="max-w-sm flex items-center gap-3 text-gray-700 ">
             <MapPin className="w-6 h-6 text-black" />
             <div className="flex items-center">
               <h5 className="font-semibold text-black mb-0 mr-2">Location:</h5>
@@ -149,8 +155,6 @@ const Session = () => {
             </div>
           </div>
 
-          <hr className="my-2 border-gray-300" />
-
           {/* About */}
           <div className="max-w-3xl">
             <h4 className="text-xl font-bold mb-2">About Me</h4>
@@ -158,7 +162,56 @@ const Session = () => {
           </div>
 
           {/* Booking Session */}
-          {/* You can add your booking UI here */}
+          <div className=" ">
+            <h5 className="text-sm md:text-xl mb-3 font-bold">Booking Slots</h5>
+            {/* Days  */}
+            <div className="flex gap-3  pb-2 overflow-x-auto no-scrollbar">
+              {availableSlots.map((slots, index) => {
+                return (
+                  <div
+                    key={index}
+                    onClick={() => setselectedDayIndex(index)}
+                    className={`text-center py-6 min-w-16 rounded-full cursor-pointer ${
+                      selectedDayIndex === index
+                        ? "bg-secondary"
+                        : "border border-gray-200"
+                    }`}
+                  >
+                    <div className="text-[14px] font-medium">
+                      {slots[0] && dayOfWeek[slots[0].DataTime.getDay()]}
+                    </div>
+                    <div className="text-[14px] font-medium">
+                      {slots[0] && slots[0].DataTime.getDate()}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            {/* Time Slots */}
+            <div className="w-full mt-4 overflow-hidden">
+              <div className="overflow-x-auto no-scrollbar">
+                <div className="flex gap-3 w-max max-w-[640px] px-1">
+                  {availableSlots[selectedDayIndex]?.map((slot, i) => (
+                    <div
+                      key={i}
+                      onClick={() => setSelectedTime(slot.time)}
+                      className={`flex items-center justify-center text-xs rounded-full min-w-20 px-4 py-2 cursor-pointer whitespace-nowrap ${
+                        slot.time === selectedTime
+                          ? "bg-secondary text-black"
+                          : "text-gray-400 border border-gray-300"
+                      }`}
+                    >
+                      {slot.time.toLowerCase()}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <Button className="mt-4 cursor-pointer" variant="secondary">
+              Book a session
+            </Button>
+          </div>
         </div>
       </div>
     </div>
