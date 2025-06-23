@@ -8,7 +8,7 @@ import accounting from "@/assets/subjects/accounting.svg";
 
 // Subject icons for reuse (optional)
 export const subjectData = [
-  { name: "Math", image: math },
+  { name: "Mathematics", image: math },
   { name: "Physics", image: physics },
   { name: "Chemistry", image: chemistry },
   { name: "English", image: english },
