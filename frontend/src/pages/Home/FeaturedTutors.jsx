@@ -56,9 +56,9 @@ const FeaturedTutors = () => {
 
       {/* Tutors Grid */}
      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
-  {tutors.slice(0, 4).map((tutor, index) => (
+  {tutors.slice(0, 4).map((tutor) => (
     <div
-      key={tutor.id}
+      key={tutor._id}
       className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden"
     >
       {/* Tutor Image Section */}
