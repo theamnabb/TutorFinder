@@ -72,7 +72,7 @@ export const tutors = [
     _id: "tutor8",
     name: "Tariq Mehmood",
     image: "https://randomuser.me/api/portraits/men/46.jpg",
-    subject: "Math",
+    subject: "Mathematics",
     rating: 4.7,
   },
   {
@@ -121,7 +121,7 @@ export const tutors = [
     _id: "tutor15",
     name: "Huma Iqbal",
     image: "https://randomuser.me/api/portraits/women/28.jpg",
-    subject: "Math",
+    subject: "Mathematics",
     rating: 5.0,
   },
 ];
