@@ -39,6 +39,24 @@ const Session = () => {
           startTime.setHours(10, 0, 0, 0);
         }
         endTime.setHours(21, 0, 0, 0);
+
+        // Create slots every 30 mints
+
+        while (startTime < endTime) {
+          const day = startTime.getDate();
+          const month = startTime.getMonth() + 1;
+          const year = startTime.getFullYear();
+          const slotDate = `${day}/${month}/${year}`;
+          const slotTime = startTime.toLocaleTimeString([], {
+            hour: "2-digit",
+            mintue: "2-digit",
+          });
+          daySlots.push({
+            DataTime: new Date(startTime),
+            time: slotTime,
+            dateString: slotDate,
+          });
+        }
       }
     };
   });
