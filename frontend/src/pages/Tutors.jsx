@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 import { Button } from "@/components/ui/button";
+import { Shield, Star, MapPin, Clock, MessageCircle } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 export default function Tutors() {
   const { tutors, navigate, subjectData } = useContext(AppContext);
@@ -139,40 +141,80 @@ useEffect(() => {
     </div>
   ))}
 </div> */}
+
+
+
 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 px-6 lg:px-12">
   {filterTutors.map((tutor, i) => (
     <div
       key={tutor._id || i}
-      className=" relative mb-9 md:mb-15 rounded-2xl backdrop-blur-lg bg-white border-2 border-deep shadow-xl p-4 flex flex-col items-center text-center transition-all hover:shadow-2xl"
+      className="relative mb-9 md:mb-15 rounded-2xl backdrop-blur-lg bg-white/10 border border-deep shadow-xl p-6 flex flex-col items-center text-center transition-all hover:shadow-2xl"
     >
       {/* Profile Image */}
-      <img
-        src={tutor.image}
-        alt={tutor.name}
-        className="w-24 h-24 rounded-full object-cover border-4 border-secondary mb-4"
-      />
+      <div className="relative">
+        <img
+          src={tutor.image || "/placeholder.svg"}
+          alt={tutor.name}
+          className="w-24 h-24 rounded-full object-cover border-4 border-secondary mb-4"
+        />
+        {/* Optional Verified Badge */}
+        {tutor.verified && (
+          <div className="absolute -bottom-1 -right-1 bg-green-500 rounded-full p-1">
+            <Shield className="h-3 w-3 text-white" />
+          </div>
+        )}
+      </div>
 
-      {/* Separator line */}
-      
+      {/* Separator */}
+      <div className="w-12 h-[2px] bg-secondary/60 my-2"></div>
 
-      {/* Name */}
-      <h3 className=" text-xl md:text-2xl font-semibold text-deep">{tutor.name}</h3>
-
-      {/* Subject */}
+      {/* Name & Subject */}
+      <h3 className="text-xl md:text-2xl font-semibold text-deep">{tutor.name}</h3>
       <p className="text-md text-tertiary mt-1">{tutor.subject}</p>
 
-    
-      <p className="text-sm text-gray-400 mt-2 mb-4 italic">
-        Passionate about teaching and learning.
+      {/* Rating */}
+      {tutor.rating && (
+        <div className="flex items-center gap-1 mt-1 text-yellow-400">
+          <Star className="h-4 w-4 fill-current" />
+          <span className="text-sm text-yellow-500 font-medium">{tutor.rating}</span>
+        </div>
+      )}
+
+      {/* Bio/Tagline */}
+      <p className="text-sm text-gray-400 mt-2 mb-4 italic text-center px-2">
+        Passionate about teaching and helping students grow.
       </p>
 
+      {/* Location & Experience */}
+      <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500 mb-3">
+        <div className="flex items-center gap-1">
+          <MapPin className="h-4 w-4" />
+          <span>{tutor.city || "Location Unknown"}</span>
+        </div>
+        <div className="flex items-center gap-1">
+          <Clock className="h-4 w-4" />
+          <span>{tutor.experience || "2+ Years"}</span>
+        </div>
+      </div>
+
+      {/* Subject Type */}
+      <div className="mb-4">
+        <Badge variant="outline" className="text-xs">
+          {tutor.type || "Online / In-Person"}
+        </Badge>
+      </div>
+
       {/* View Profile Button */}
-      <Button asChild className="w-full mt-auto bg-deep hover:bg-white border-2 border-deep hover:text-deep">
-        <Link to={`/profile/${tutor._id}`}>View Profile</Link>
+      <Button
+        asChild
+        className="w-full mt-auto bg-deep hover:bg-white border-2 border-deep hover:text-deep"
+      >
+        <Link to={`/session/${tutor._id}`}>View Profile</Link>
       </Button>
     </div>
   ))}
 </div>
+
 
 
 
