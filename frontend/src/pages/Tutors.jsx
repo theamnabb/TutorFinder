@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 import { Button } from "@/components/ui/button";
@@ -7,11 +7,22 @@ export default function Tutors() {
   const { tutors, navigate, subjectData } = useContext(AppContext);
   const { subject: subjectParam } = useParams(); // for capturing subject from URL
   const [showFilters, setShowFilters] = useState(false);
+const [filterTutors, setfilterTutors] = useState([]);
 
   const handleSubjectClick = (subjectName) => {
     navigate(`/tutors/${subjectName}`);
     setShowFilters(false); // Hide filters after selection
   };
+
+// filter the tutor  based on subject
+useEffect(() => {
+  if (subjectParam) {
+    setfilterTutors(tutors.filter(tutor => tutor.subject === subjectParam));
+  } else {
+    setfilterTutors(tutors); // Show all tutors if no subject selected
+  }
+}, [subjectParam, tutors]);
+
 
   return (
     <div className="w-full overflow-x-hidden">
@@ -57,7 +68,7 @@ export default function Tutors() {
 
               return (
                 <img
-                  key={tutor.id}
+                  key={tutor._id}
                   src={tutor.image}
                   alt={tutor.name}
                   title={tutor.name}
@@ -110,6 +121,61 @@ export default function Tutors() {
         ))}
       </div>
     </div>
+
+    {/* Card for tutor */}
+    {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12 px-6 lg:px-12">
+  {filterTutors.map((tutor, i) => (
+    <div
+      key={i}
+      className="relative bg-white rounded-xl shadow p-6 flex flex-col items-center text-center"
+    >
+      <img
+        src={tutor.image}
+        alt={tutor.name}
+        className="w-24 h-24 rounded-full object-cover border-4 border-secondary mb-4"
+      />
+      <h3 className="text-xl font-semibold">{tutor.name}</h3>
+      <p className="text-gray-500">{tutor.subject}</p>
+    </div>
+  ))}
+</div> */}
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 px-6 lg:px-12">
+  {filterTutors.map((tutor, i) => (
+    <div
+      key={tutor._id || i}
+      className=" relative mb-9 md:mb-15 rounded-2xl backdrop-blur-lg bg-white border-2 border-deep shadow-xl p-4 flex flex-col items-center text-center transition-all hover:shadow-2xl"
+    >
+      {/* Profile Image */}
+      <img
+        src={tutor.image}
+        alt={tutor.name}
+        className="w-24 h-24 rounded-full object-cover border-4 border-secondary mb-4"
+      />
+
+      {/* Separator line */}
+      
+
+      {/* Name */}
+      <h3 className=" text-xl md:text-2xl font-semibold text-deep">{tutor.name}</h3>
+
+      {/* Subject */}
+      <p className="text-md text-tertiary mt-1">{tutor.subject}</p>
+
+    
+      <p className="text-sm text-gray-400 mt-2 mb-4 italic">
+        Passionate about teaching and learning.
+      </p>
+
+      {/* View Profile Button */}
+      <Button asChild className="w-full mt-auto bg-deep hover:bg-white border-2 border-deep hover:text-deep">
+        <Link to={`/profile/${tutor._id}`}>View Profile</Link>
+      </Button>
+    </div>
+  ))}
+</div>
+
+
+
     </div>
   );
 }
