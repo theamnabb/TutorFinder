@@ -56,7 +56,22 @@ const AppRoutes = () => {
             </Layout>
           }
         />
-
+        <Route
+          path="/tutors/:subject"
+          element={
+            <Layout showFooter showHeader>
+              <Tutors />
+            </Layout>
+          }
+        />
+        <Route
+          path="/session/:tutId"
+          element={
+            <Layout showFooter showHeader>
+              <Session />
+            </Layout>
+          }
+        />
         <Route
           path="/my-sessions"
           element={
@@ -66,14 +81,6 @@ const AppRoutes = () => {
           }
         />
 
-        <Route
-          path="/session/:tutId"
-          element={
-            <Layout showFooter showHeader>
-              <Session />
-            </Layout>
-          }
-        />
         <Route
           path="/term-tutors"
           element={

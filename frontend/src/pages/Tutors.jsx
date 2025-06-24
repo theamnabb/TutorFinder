@@ -124,22 +124,7 @@ export default function Tutors() {
       </div>
 
       {/* Card for tutor */}
-      {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12 px-6 lg:px-12">
-  {filterTutors.map((tutor, i) => (
-    <div
-      key={i}
-      className="relative bg-white rounded-xl shadow p-6 flex flex-col items-center text-center"
-    >
-      <img
-        src={tutor.image}
-        alt={tutor.name}
-        className="w-24 h-24 rounded-full object-cover border-4 border-secondary mb-4"
-      />
-      <h3 className="text-xl font-semibold">{tutor.name}</h3>
-      <p className="text-gray-500">{tutor.subject}</p>
-    </div>
-  ))}
-</div> */}
+      
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 px-6 lg:px-12">
         {filterTutors.map((tutor, i) => (
