@@ -23,7 +23,7 @@ const HeroSection = () => {
       </p>
       <div className="flex gap-4 flex-wrap">
         <Button variant="custom">
-          <Link to="/login">Register Now</Link>
+          <Link to="/register">Register Now</Link>
         </Button>
         <Button variant="secondary" >
           <Link to="/tutors">Book Session</Link>
