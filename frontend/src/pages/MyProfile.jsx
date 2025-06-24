@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 const MyProfile = () => {
-  // Dummy user data  // I'll replace it with context data 
+  // Dummy user data  // I'll replace it with context data
   const initialUser = {
     pic: "https://randomuser.me/api/portraits/women/68.jpg",
     name: "Ayesha Khan",
@@ -19,14 +19,14 @@ const MyProfile = () => {
 
   // Handle form input changes
   const handleChange = (e) => {
-  const { name, value, files } = e.target;
-  if (name === "pic" && files && files.length > 0) {
-    const imageUrl = URL.createObjectURL(files[0]);
-    setUser((prev) => ({ ...prev, pic: imageUrl }));
-  } else {
-    setUser((prev) => ({ ...prev, [name]: value }));
-  }
-};
+    const { name, value, files } = e.target;
+    if (name === "pic" && files && files.length > 0) {
+      const imageUrl = URL.createObjectURL(files[0]);
+      setUser((prev) => ({ ...prev, pic: imageUrl }));
+    } else {
+      setUser((prev) => ({ ...prev, [name]: value }));
+    }
+  };
 
   // Toggle edit mode
   const toggleEdit = () => setIsEditing((prev) => !prev);
@@ -39,71 +39,70 @@ const MyProfile = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white rounded-xl shadow-md">
+    <section className="py-28 mx-auto max-w-[1440px] px-6 lg:px-12">
+      <div className="max-w-3xl mx-auto p-6 bg-white rounded-xl shadow-md">
       {/* Profile picture + name/email */}
-      {/* Profile picture + name/email */}
-<div className="flex items-center gap-6 mb-6">
-  <div className="relative w-36 h-36">
-    <img
-      src={user.pic}
-      alt="Profile"
-      className="w-full h-full object-cover rounded-md border border-gray-300"
-    />
-    {isEditing && (
-      <input
-        type="file"
-        accept="image/*"
-        name="pic"
-        onChange={handleChange}
-        className="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer"
-        title="Change Profile Picture"
-      />
-    )}
-  </div>
-
-  <div className="flex-1">
-    {!isEditing ? (
-      <>
-        <h1 className="text-3xl font-semibold">{user.name}</h1>
-        <p className="text-gray-600">{user.email}</p>
-      </>
-    ) : (
-      <form onSubmit={handleUpdate} className="space-y-4 w-full">
-        <div>
-          <label className="block font-medium mb-1" htmlFor="name">
-            Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={user.name}
-            onChange={handleChange}
-            className="w-full border border-gray-300 rounded-md px-3 py-2"
-            required
+      <div className="flex items-center gap-6 mb-6">
+        <div className="relative w-36 h-36">
+          <img
+            src={user.pic}
+            alt="Profile"
+            className="w-full h-full object-cover rounded-md border border-gray-300"
           />
+          {isEditing && (
+            <input
+              type="file"
+              accept="image/*"
+              name="pic"
+              onChange={handleChange}
+              className="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer"
+              title="Change Profile Picture"
+            />
+          )}
         </div>
-        <div>
-          <label className="block font-medium mb-1" htmlFor="email">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={user.email}
-            onChange={handleChange}
-            className="w-full border border-gray-300 rounded-md px-3 py-2"
-            required
-          />
+
+        <div className="flex-1">
+          {!isEditing ? (
+            <>
+              <h1 className="text-3xl font-semibold">{user.name}</h1>
+              <p className="text-gray-600">{user.email}</p>
+            </>
+          ) : (
+            <form onSubmit={handleUpdate} className="space-y-4 w-full">
+              <div>
+                <label className="block font-medium mb-1" htmlFor="name">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={user.name}
+                  onChange={handleChange}
+                  className="w-full border border-gray-300 rounded-md px-3 py-2"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block font-medium mb-1" htmlFor="email">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={user.email}
+                  onChange={handleChange}
+                  className="w-full border border-gray-300 rounded-md px-3 py-2"
+                  required
+                />
+              </div>
+            </form>
+          )}
         </div>
-      </form>
-    )}
-  </div>
-</div>
+      </div>
 
-<hr className="my-6" />
-
+      <hr className="my-6" />
 
       {/* Personal Details */}
       <div>
@@ -136,7 +135,10 @@ const MyProfile = () => {
             </div>
           </div>
         ) : (
-          <form onSubmit={handleUpdate} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <form
+            onSubmit={handleUpdate}
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          >
             <div>
               <label className="block font-medium mb-1" htmlFor="phone">
                 Phone
@@ -218,7 +220,7 @@ const MyProfile = () => {
       {/* Buttons */}
       <div className="mt-6">
         {!isEditing ? (
-          <Button 
+          <Button
             onClick={toggleEdit}
             className="px-6 py-2 bg-deep text-white rounded-md cursor-pointer hover:bg-deep/90 transition"
           >
@@ -244,6 +246,7 @@ const MyProfile = () => {
         )}
       </div>
     </div>
+    </section>
   );
 };
 
