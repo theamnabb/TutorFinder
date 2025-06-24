@@ -29,7 +29,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#f4f5fa] to-[#e0e7ff] flex items-center justify-center px-4">
+    <div className="min-h-screen bg-gradient-to-tr from-deep to-secondary flex items-center justify-center px-4">
       <div className="max-w-md w-full bg-white p-8 rounded-xl shadow-xl border border-gray-200">
         {/* Logo */}
         <div className="mb-8 flex justify-center">
