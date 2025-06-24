@@ -10,6 +10,7 @@ import Verify from "../pages/Verify";
 import Login from "../pages/auth/Login";
 import Layout from "../components/common/Layout";
 import TermTutors from "@/pages/TermTutors";
+import TermStudents from "@/pages/TermStudents";
 const AppRoutes = () => {
   return (
     <>
@@ -69,6 +70,15 @@ const AppRoutes = () => {
           element={
             <Layout showFooter showHeader>
               <TermTutors />
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/term-students"
+          element={
+            <Layout showFooter showHeader>
+              <TermStudents />
             </Layout>
           }
         />
