@@ -47,16 +47,25 @@ const AppRoutes = () => {
             </Layout>
           }
         />
+
         <Route
-          path="/tutors/:subject"
+          path="/my-profile"
           element={
             <Layout showFooter showHeader>
-              <Tutors />
+              <MyProfile />
             </Layout>
           }
         />
-        <Route path="/my-profile" element={<MyProfile />} />
-        <Route path="/my-sessions" element={<MySessions />} />
+
+        <Route
+          path="/my-sessions"
+          element={
+            <Layout showFooter showHeader>
+              <MySessions />
+            </Layout>
+          }
+        />
+
         <Route
           path="/session/:tutId"
           element={
