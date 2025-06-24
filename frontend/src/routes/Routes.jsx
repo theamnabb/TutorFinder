@@ -11,6 +11,8 @@ import Login from "../pages/auth/Login";
 import Layout from "../components/common/Layout";
 import TermTutors from "@/pages/TermTutors";
 import TermStudents from "@/pages/TermStudents";
+import Register from "@/pages/auth/Register";
+import ForgotPassword from "@/pages/auth/ForgotPassword";
 const AppRoutes = () => {
   return (
     <>
@@ -101,6 +103,8 @@ const AppRoutes = () => {
 
         <Route path="/verify" element={<Verify />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
       </Routes>
     </>
   );
