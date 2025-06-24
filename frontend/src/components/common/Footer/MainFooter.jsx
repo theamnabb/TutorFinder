@@ -63,7 +63,7 @@ const MainFooter = () => {
               </li>
               <li>
                 <Link
-                  to="/terms-students"
+                  to="/term-students"
                   className="text-gray-300 hover:text-secondary"
                 >
                   Terms for Students
@@ -71,7 +71,7 @@ const MainFooter = () => {
               </li>
               <li>
                 <Link
-                  to="/terms-tutors"
+                  to="/term-tutors"
                   className="text-gray-300 hover:text-secondary"
                 >
                   Terms for Tutors
