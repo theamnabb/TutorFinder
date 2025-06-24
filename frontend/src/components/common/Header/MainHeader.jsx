@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import Navbar from "./Navbar";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { UserIcon, AlignLeft, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AppContext } from "@/context/AppContext";
+import Navbar from "./Navbar";
 import tutorFemale from "../../../assets/tutors/tutor-female.png";
 import {
   DropdownMenu,
@@ -13,13 +13,22 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const MainHeader = () => {
-  const [menuOpened, setMenuOpened] = React.useState(false);
+  const [menuOpened, setMenuOpened] = useState(false);
   const toggleMenu = () => setMenuOpened((prev) => !prev);
   const { token, setToken } = useContext(AppContext);
+  const navigate = useNavigate();
+
   const isAuthenticated = !!token;
 
+  // Logout function
+  const logout = () => {
+    localStorage.removeItem("token");
+    setToken("");
+    navigate("/login");
+  };
+
   return (
-    <header className="absolute top-0 left-0 right-0 z-50 w-full bg-deep text-white py-3 ">
+    <header className="absolute top-0 left-0 right-0 z-50 w-full bg-deep text-white py-3">
       <div className="mx-auto max-w-[1440px] px-6 lg:px-12 flex items-center justify-between">
         {/* Logo */}
         <Link
@@ -37,9 +46,9 @@ const MainHeader = () => {
           <Navbar containerStyles="flex gap-x-8" />
         </div>
 
-        {/* Right Side (Login + Mobile Menu Button) */}
+        {/* Right: Profile or Login */}
         <div className="flex items-center gap-x-4">
-          {/* Mobile Menu Toggle */}
+          {/* Mobile Menu Icon */}
           <div className="xl:hidden">
             <AlignLeft
               size={28}
@@ -49,7 +58,6 @@ const MainHeader = () => {
             />
           </div>
 
-          {/* Login or Profile Dropdown */}
           {!isAuthenticated ? (
             <Button variant="custom">
               <Link to="/login" className="flex items-center space-x-1">
@@ -70,23 +78,23 @@ const MainHeader = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
                 <DropdownMenuItem asChild>
-                  <Link to="/my-profile" className="cursor-pointer">
+                  <Link to="/my-profile" className="cursor-pointer hover:text-deep">
                     My Profile
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/my-sessions" className="cursor-pointer">
+                  <Link to="/my-sessions" className="cursor-pointer hover:text-deep">
                     My Sessions
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem >
-                  <Link
-                    to="/logout"
-                    className="flex items-center cursor-pointer gap-2 w-full text-red-500"
+                <DropdownMenuItem>
+                  <button
+                    onClick={logout}
+                    className="flex items-center gap-2 w-full text-red-500 hover:text-red-600"
                   >
-                    <LogOut className="w-4 h-4 text-red-500" />
+                    <LogOut className="w-4 h-4" />
                     Logout
-                  </Link>
+                  </button>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -94,7 +102,7 @@ const MainHeader = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation Drawer */}
+      {/* Mobile Nav */}
       <Navbar
         menuOpened={menuOpened}
         toggleMenu={toggleMenu}
