@@ -9,6 +9,7 @@ import Session from "../pages/Session";
 import Verify from "../pages/Verify";
 import Login from "../pages/auth/Login";
 import Layout from "../components/common/Layout";
+import TermTutors from "@/pages/TermTutors";
 const AppRoutes = () => {
   return (
     <>
@@ -60,6 +61,14 @@ const AppRoutes = () => {
           element={
             <Layout showFooter showHeader>
               <Session />
+            </Layout>
+          }
+        />
+        <Route
+          path="/term-tutors"
+          element={
+            <Layout showFooter showHeader>
+              <TermTutors />
             </Layout>
           }
         />
