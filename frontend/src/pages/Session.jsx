@@ -85,7 +85,7 @@ const Session = () => {
   if (!tutorInfo) return <div>Loading...</div>;
 
   return (
-    <div className="mx-auto max-w-[1440px] px-6 lg:px-12 py-12">
+    <div className=" py-28 mx-auto max-w-[1440px] px-6 lg:px-12">
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[1fr_2fr] gap-x-12 gap-y-8">
         {/* Image Section */}
         <div className="relative w-full h-72 md:h-[444px] rounded-lg overflow-hidden shadow-lg">
