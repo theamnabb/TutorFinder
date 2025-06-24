@@ -4,7 +4,7 @@ import { FaTimes } from "react-icons/fa";
 const Navbar = ({ menuOpened, toggleMenu, containerStyles }) => {
   const navItems = [
     { to: "/", label: "Home" },
-    { to: "/tutors", label: "Tutors" },
+    { to: "/tutors", label: "Find Tutors" },
     { to: "/blog", label: "Blog" },
     { to: "/contact", label: "Contact" },
   ];
