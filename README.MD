@@ -13,3 +13,5 @@ Tutor Finder
     - How its works
     - Footer
 
+
+- Blog page > Blog Id for read articles
