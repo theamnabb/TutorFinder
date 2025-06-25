@@ -10,6 +10,7 @@ import {
   Menu,
   X,
 } from "lucide-react";
+import { AppContext } from "../../context/AppContext";
 
 const navItems = [
   {
@@ -36,6 +37,13 @@ const navItems = [
 
 const AdminSidebar = ({ onNavItemClick }) => {
   const { atoken, setAtoken } = useContext(AdminContext);
+  const {navigate} = useContext(AppContext);
+  // Logout Function
+  const logout = ()=>{
+    navigate('/')
+    atoken && setAtoken('')
+    atoken && localStorage.removeItem('atoken')
+  }
 
   const handleNavClick = () => {
     if (window.innerWidth < 1024) {
@@ -44,7 +52,7 @@ const AdminSidebar = ({ onNavItemClick }) => {
   };
 
   return (
-    <aside className="fixed top-0 left-0 h-full w-64 bg-deep text-white py-8 px-4 shadow-xl z-40">
+    <aside className="fixed top-0 left-0 h-full w-64 bg-deep text-white py-5 px-4 shadow-xl z-40 ">
       {/* Logo */}
 
       <Link
@@ -63,7 +71,7 @@ const AdminSidebar = ({ onNavItemClick }) => {
       </Link>
 
       {atoken && (
-        <nav className="flex flex-col space-y-2 h-screen">
+        <nav className="flex flex-col space-y-4 h-screen">
           {navItems.map(({ to, label, icon }, index) => (
             <NavLink
               key={index}
@@ -84,11 +92,8 @@ const AdminSidebar = ({ onNavItemClick }) => {
 
           {/* Logout */}
           <button
-            onClick={() => {
-              localStorage.removeItem("atoken");
-              setAtoken("");
-            }}
-            className="flex items-center gap-3 mt-6 px-4 py-3 text-red-400 hover:text-red-600 hover:bg-white/10 rounded-md transition cursor-pointer"
+            onClick={logout}
+            className="flex items-center gap-3 mt-15 md:mt-40 px-4 py-3 text-red-400 hover:text-red-600 hover:bg-white/10 rounded-md transition cursor-pointer"
           >
             <LogOut className="w-5 h-5" />
             Logout
