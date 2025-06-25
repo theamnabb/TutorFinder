@@ -2,7 +2,11 @@ import React from 'react'
 
 const SideBar = () => {
   return (
-    <div>SideBar</div>
+    <div>
+      <div>
+        {/* Logo tutorFinder */}
+      </div>
+    </div>
   )
 }
 

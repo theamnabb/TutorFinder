@@ -1,7 +1,7 @@
-import { useContext, useState } from "react";
+import { createContext } from "react";
 
 // create context
-export const TutorContext = useContext();
+export const TutorContext = createContext();
 
 const TutorContextProvider = (props) => {
   

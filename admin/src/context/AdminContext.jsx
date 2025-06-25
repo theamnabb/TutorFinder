@@ -1,7 +1,7 @@
-import { useContext, useState } from "react";
+import { createContext, useState } from "react";
 
 // create context
-export const AdminContext = useContext();
+export const AdminContext = createContext();
 
 const AdminContextProvider = (props) => {
   const [atoken, setAtoken] = useState("dummy token");
