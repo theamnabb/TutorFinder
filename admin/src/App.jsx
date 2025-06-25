@@ -1,21 +1,22 @@
-import SideBar from "./compontents/common/SideBar";
+import React, { useContext } from "react";
+import { AdminContext } from "./context/AdminContext";
 import AppRoutes from "./routes/Routes";
-function App() {
- 
+import Login from "./pages/Auth/Login"; 
+
+const App = () => {
+  const { atoken } = useContext(AdminContext);
 
   return (
-    <>
-      <main>
-        <div>
-        <div>
-          {/* Routes */}
-          <AppRoutes/>
+    <main>
+      <div>
+        {atoken ? (
+          <AppRoutes /> // Render routes if token exists
+        ) : (
+          <Login /> // Show login page if not logged in
+        )}
+      </div>
+    </main>
+  );
+};
 
-        </div>
-        </div>
-      </main>
-    </>
-  )
-}
-
-export default App
+export default App;
