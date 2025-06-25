@@ -8,7 +8,6 @@ function App() {
       <main>
         <div>
         <div>
-          <SideBar/>
           {/* Routes */}
           <AppRoutes/>
 
