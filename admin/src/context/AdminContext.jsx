@@ -5,6 +5,16 @@ export const AdminContext = createContext();
 
 const AdminContextProvider = (props) => {
   const [atoken, setAtoken] = useState("dummyToken");
+  
+// get all tutors from Backend
+  // const getAllTutors = async ()=>{
+  //   try {
+      
+  //   } catch (error) {
+      
+  //   }
+  // }
+  
   const value = {
     atoken,
     setAtoken,

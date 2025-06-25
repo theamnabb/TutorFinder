@@ -26,7 +26,8 @@ const AddTutor = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Submitted:", formData);
-    // Submit logic here
+    
+    
   };
 
   return (
