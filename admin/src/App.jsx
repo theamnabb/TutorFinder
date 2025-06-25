@@ -1,4 +1,4 @@
-import SideBar from "./compontents/SideBar";
+import SideBar from "./compontents/common/SideBar";
 import AppRoutes from "./routes/Routes";
 function App() {
  
