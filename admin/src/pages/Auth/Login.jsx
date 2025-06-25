@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AdminContext } from "../../context/AdminContext";
 import { Mail, Lock } from "lucide-react";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [userType, setUserType] = useState("admin");
@@ -13,29 +14,41 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
+    // 🥱 Please add the real backend login using Axios
     const fakeToken = `${userType}_token_123`;
     localStorage.setItem("atoken", fakeToken);
     setAtoken(fakeToken);
+
+    toast.success(`Logged in as ${userType.toUpperCase()} successfully!`);
+
     navigate(userType === "admin" ? "/admin-dashboard" : "/tutor-dashboard");
   };
 
   const handleForgotSubmit = (e) => {
     e.preventDefault();
-    alert(`Password reset link sent to: ${email}`);
+    toast.info(`Password reset link sent to ${email}`);
     setIsForgot(false);
   };
 
   return (
     <div className="flex min-h-screen bg-gray-100">
       {/* Left Side Image */}
-      <div
-        className="hidden lg:flex w-1/2 bg-cover bg-center"
-        style={{
-          backgroundImage: `url("https://source.unsplash.com/featured/?online,learning")`,
-        }}
-      >
-        <div className="bg-black/40 w-full h-full flex items-center justify-center text-white text-4xl font-bold p-6 text-center">
-          Learn & Grow with TutorFinder
+      <div className="hidden lg:flex w-1/2 bg-deep text-white p-10">
+        <div className="m-auto text-center">
+          <h1 className="text-4xl font-bold leading-tight">
+            Empowering Education,
+            <br /> One Session at a Time
+          </h1>
+          <p className="mt-6 text-lg text-white/80 max-w-md mx-auto">
+            Join{" "}
+            <span className="text-secondary font-semibold">TutorFinder</span> to
+            connect learners with expert tutors and unlock your full potential.
+          </p>
+          <div className="mt-8">
+            <span className="inline-block px-4 py-2 bg-secondary text-deep rounded-full text-sm font-medium">
+              Learn & Grow with Us
+            </span>
+          </div>
         </div>
       </div>
 
@@ -103,7 +116,9 @@ const Login = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-1">Password</label>
+                <label className="block text-sm font-medium mb-1">
+                  Password
+                </label>
                 <div className="flex items-center border border-gray-300 rounded-md overflow-hidden focus-within:ring-2 focus-within:ring-deep">
                   <span className="px-3 text-gray-400">
                     <Lock size={18} />
