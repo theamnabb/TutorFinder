@@ -6,7 +6,6 @@ const Dashboard = () => {
     { title: "Total Tutors", value: 128, icon: Users, bg: "bg-[#0B1D51]" },
     { title: "Active Sessions", value: 23, icon: Calendar, bg: "bg-green-600" },
     { title: "Pending Requests", value: 5, icon: AlertCircle, bg: "bg-yellow-500" },
-    { title: "New Messages", value: 7, icon: MessageSquare, bg: "bg-deep" },
   ];
 
   // dummy data 
@@ -51,7 +50,7 @@ const Dashboard = () => {
       </header>
 
       {/* Stats Cards */}
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
         {stats.map(({ title, value, icon: Icon, bg }) => (
           <div
             key={title}
