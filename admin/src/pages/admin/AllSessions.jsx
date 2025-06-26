@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+// dummy Data for Sessions // Please replace it 
 
 const initialSessions = [
   {
