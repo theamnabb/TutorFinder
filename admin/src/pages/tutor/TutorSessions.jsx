@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Calendar, Clock, User, BookOpen, Star, Filter, Search, CheckCircle, XCircle, AlertCircle } from 'lucide-react';
+import { useState } from 'react';
+import { Calendar, Clock, BookOpen, Star, Filter, Search, CheckCircle, XCircle, AlertCircle } from 'lucide-react';
 
 const TutorSessions = () => {
   const [activeFilter, setActiveFilter] = useState('all');
