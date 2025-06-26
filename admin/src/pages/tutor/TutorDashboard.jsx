@@ -1,4 +1,3 @@
-import React from 'react';
 import { BookOpen, Users, Star, TrendingUp, Calendar, Clock, CheckCircle, XCircle } from 'lucide-react';
 
 const TutorDashboard = () => {
