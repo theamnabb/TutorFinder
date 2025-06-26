@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { Camera, Save, Edit, MapPin, Mail, Calendar, DollarSign, BookOpen, Award } from 'lucide-react';
 
 const TutorProfile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [profileImage, setProfileImage] = useState(null); // For storing image preview
   
+  // dummy formData 😁
 
   const [formData, setFormData] = useState({
     name: 'Sarah Johnson',
@@ -47,7 +48,7 @@ const TutorProfile = () => {
     if(file) {
       const reader = new FileReader();
       reader.onload = () => {
-        setProfileImage(reader.result); // base64 string for preview
+        setProfileImage(reader.result); 
       };
       reader.readAsDataURL(file);
     }
