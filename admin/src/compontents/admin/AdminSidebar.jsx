@@ -7,8 +7,6 @@ import {
   Users,
   UserPlus,
   LogOut,
-  Menu,
-  X,
 } from "lucide-react";
 import { AppContext } from "../../context/AppContext";
 

@@ -1,11 +1,13 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 // create context
 export const TutorContext = createContext();
 
 const TutorContextProvider = (props) => {
+  const [tutorToken, setTutorToken] = useState("dummyTOken");
+
   
-  const value = {};
+  const value = {tutorToken,setTutorToken};
 
   return (
     <TutorContext.Provider value={value}>
