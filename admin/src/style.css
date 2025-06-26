@@ -126,8 +126,6 @@
   --color-gray-90: #141414;
 
   --breakpoint-xs: 400px;
-  --bg-hero: "url('/src/assets/BG-image.png')";
-  --animate-spin:  spin 20s linear infinite;
   
   
 }
