@@ -237,7 +237,7 @@ const TutorProfile = () => {
                     </span>
                   ))}
                 </div>
-                <button onClick={addSubject} className="text-sm text-blue-600 hover:text-blue-800">
+                <button onClick={addSubject} className="text-sm text-deep hover:text-deep/80">
                   + Add Subject
                 </button>
               </div>
@@ -349,7 +349,7 @@ const TutorProfile = () => {
                 </button>
               </div>
             ))}
-            <button onClick={addQualification} className="text-sm text-blue-600 hover:text-blue-800">
+            <button onClick={addQualification} className="text-sm text-deep hover:text-deep/80">
               + Add Qualification
             </button>
           </div>
