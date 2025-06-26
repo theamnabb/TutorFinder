@@ -8,10 +8,13 @@ import TutorDashboard from "../pages/tutor/TutorDashboard";
 import TutorSessions from "../pages/tutor/TutorSessions";
 import TutorProfile from "../pages/tutor/TutorProfile";
 import TutorLayout from "../compontents/tutor/TutorLayout";
+import Login from "../pages/Auth/Login"
 
 const AppRoutes = () => {
   return (
     <Routes>
+      {/* Public Route */}
+      <Route path="/" element={<Login />} />
       {/* Admin Layout Wrapper & routes*/}
       <Route element={<AdminLayout />}>
         <Route path="/admin-dashboard" element={<Dashboard />} />
