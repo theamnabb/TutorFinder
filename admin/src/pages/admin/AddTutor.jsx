@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const AddTutor = () => {
   const [formData, setFormData] = useState({
@@ -24,10 +24,7 @@ const AddTutor = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Submitted:", formData);
-    
-    
+    e.preventDefault(); 
   };
 
   return (
