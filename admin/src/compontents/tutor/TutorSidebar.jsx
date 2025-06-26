@@ -3,10 +3,11 @@ import { Link, NavLink } from "react-router-dom";
 import { TutorContext } from "../../context/TutorContext";
 import {
   LayoutDashboard,
-  BookOpenCheck,
   Users,
   UserPlus,
+Calendar,
   LogOut,
+  User,
  
 } from "lucide-react";
 import { AppContext } from "../../context/AppContext";
@@ -20,12 +21,12 @@ const navItems = [
   {
     to: "/tutor-sessions",
     label: "MySessions",
-    icon: <BookOpenCheck className="w-5 h-5" />,
+    icon: <Calendar className="w-5 h-5" />,
   },
   {
     to: "/tutor-profile",
     label: "MyProfile",
-    icon: <Users className="w-5 h-5" />,
+    icon: <User className="w-5 h-5" />,
   },
   
 ];
@@ -95,6 +96,20 @@ const {navigate} = useContext(AppContext);
             <LogOut className="w-5 h-5" />
             Logout
           </button>
+
+          {/* User Info */}
+        <div className="p-4 border-t border-gray-10">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-secondary rounded-full flex items-center justify-center">
+              <User size={20} className="text-tertiary" />
+            </div>
+            <div>
+              <p className="font-medium text-white text-sm">Sarah Johnson</p>
+              <p className="text-gray-20 text-xs">Mathematics Tutor</p>
+            </div>
+          </div>
+        </div>
+      
         </nav>
       )}
     </aside>
