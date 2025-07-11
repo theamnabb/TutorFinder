@@ -1,11 +1,11 @@
-import  { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AdminContext } from "../../context/AdminContext";
 import { Mail, Lock } from "lucide-react";
 import { toast } from "react-toastify";
 
 const Login = () => {
-  const [userType, setUserType] = useState("admin");
+  const [userType, setUserType] = useState("admin"); // 'admin', 'tutor', 'student'
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isForgot, setIsForgot] = useState(false);
@@ -21,7 +21,11 @@ const Login = () => {
 
     toast.success(`Logged in as ${userType.toUpperCase()} successfully!`);
 
-    navigate(userType === "admin" ? "/admin-dashboard" : "/tutor-dashboard");
+    // navigate(userType === "admin" ? "/admin-dashboard" : "/tutor-dashboard");
+    // Dynamic navigation based on role
+    if (userType === "admin") navigate("/admin-dashboard");
+    else if (userType === "tutor") navigate("/tutor-dashboard");
+    else navigate("/student-dashboard");
   };
 
   const handleForgotSubmit = (e) => {
@@ -66,7 +70,11 @@ const Login = () => {
             utorFinder
           </div>
           <span className="text-xs bg-secondary text-tertiary mt-1 px-2 rounded-xl">
-            {userType === "admin" ? "For Admin" : "For Tutor"}
+            {userType === "admin"
+              ? "For Admin"
+              : userType === "tutor"
+              ? "For Tutor"
+              : "For Student"}
           </span>
         </Link>
 
@@ -91,6 +99,16 @@ const Login = () => {
             }`}
           >
             Tutor
+          </button>
+          <button
+            onClick={() => setUserType("student")}
+            className={`px-4 py-2 rounded-md text-sm font-semibold border ${
+              userType === "student"
+                ? "bg-deep text-white"
+                : "border-gray-300 text-gray-600 hover:bg-gray-100"
+            }`}
+          >
+            Student
           </button>
         </div>
 
