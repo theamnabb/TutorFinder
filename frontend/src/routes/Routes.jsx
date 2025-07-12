@@ -10,7 +10,7 @@ import AuthPage from "../pages/auth/AuthPage";
 import Layout from "../components/common/Layout";
 import TermTutors from "@/pages/TermTutors";
 import TermStudents from "@/pages/TermStudents";
-import ForgotPassword from "@/pages/auth/ForgotPassword";
+// import ForgotPassword from "@/pages/auth/ForgotPassword";
 import AllSessions from "@/pages/admin/AllSessions";
 import AddTutor from "@/pages/admin/AddTutor";
 import TutorsList from "@/pages/admin/TutorsList";
@@ -110,7 +110,7 @@ const AppRoutes = () => {
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/login" element={<Navigate to="/auth" />} />
         <Route path="/register" element={<Navigate to="/auth" />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
+        
         {/* Admin Layout Wrapper & routes*/}
         <Route element={<AdminLayout />}>
           <Route path="/admin-dashboard" element={<Dashboard />} />
