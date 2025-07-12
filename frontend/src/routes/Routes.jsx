@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "../pages/Home";
 import Tutors from "../pages/Tutors";
 import Contact from "../pages/Contact";
@@ -6,11 +6,10 @@ import Blog from "../pages/Blog";
 import MyProfile from "../pages/MyProfile";
 import MySessions from "../pages/MySessions";
 import Session from "../pages/Session";
-import Login from "../pages/auth/Login";
+import AuthPage from "../pages/auth/AuthPage";
 import Layout from "../components/common/Layout";
 import TermTutors from "@/pages/TermTutors";
 import TermStudents from "@/pages/TermStudents";
-import Register from "@/pages/auth/Register";
 import ForgotPassword from "@/pages/auth/ForgotPassword";
 import AllSessions from "@/pages/admin/AllSessions";
 import AddTutor from "@/pages/admin/AddTutor";
@@ -108,26 +107,25 @@ const AppRoutes = () => {
             </Layout>
           }
         />
-
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/auth" element={<AuthPage />} />
+        <Route path="/login" element={<Navigate to="/auth" />} />
+        <Route path="/register" element={<Navigate to="/auth" />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         {/* Admin Layout Wrapper & routes*/}
-      <Route element={<AdminLayout />}>
-        <Route path="/admin-dashboard" element={<Dashboard />} />
-        <Route path="/all-sessions" element={<AllSessions />} />
-        <Route path="/add-tutor" element={<AddTutor />} />
-        <Route path="/tutors-list" element={<TutorsList />} />
-      </Route>
+        <Route element={<AdminLayout />}>
+          <Route path="/admin-dashboard" element={<Dashboard />} />
+          <Route path="/all-sessions" element={<AllSessions />} />
+          <Route path="/add-tutor" element={<AddTutor />} />
+          <Route path="/tutors-list" element={<TutorsList />} />
+        </Route>
 
         {/* Tutor Layout Wrapper & routes*/}
-      <Route element={<TutorLayout />}>
-        <Route path="/tutor-dashboard" element={<TutorDashboard />} />
-        <Route path="/tutor-sessions" element={<TutorSessions />} />
-        <Route path="/tutor-profile" element={<TutorProfile/>} />
-      </Route>
+        <Route element={<TutorLayout />}>
+          <Route path="/tutor-dashboard" element={<TutorDashboard />} />
+          <Route path="/tutor-sessions" element={<TutorSessions />} />
+          <Route path="/tutor-profile" element={<TutorProfile />} />
+        </Route>
       </Routes>
-
     </>
   );
 };
