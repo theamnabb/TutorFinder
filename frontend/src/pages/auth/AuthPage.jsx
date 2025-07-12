@@ -4,8 +4,9 @@ import { toast } from "react-toastify";
 import { Mail, Lock, User } from "lucide-react";
 import { AdminContext } from "../../context/AdminContext";
 
-const AuthPage = () => {
-  const [isRegister, setIsRegister] = useState(false);
+const AuthPage = ({ defaultMode = "login" }) => {
+  const [isRegister, setIsRegister] = useState(defaultMode === "register");
+  
   const [role, setRole] = useState("student");
   const [isForgot, setIsForgot] = useState(false);
 
